@@ -14,8 +14,11 @@
     "browserify": "^6.2.0",
     "envify": "^3.0.0",
     "jest-cli": "~0.1.17",
+    "moment": "^2.9.0",
     "ramda": "^0.13.0",
     "reactify": "^0.15.2",
+    "superagent": "^1.1.0",
+    "superagent-jsonp": "0.0.2",
     "uglify-js": "~2.4.15",
     "watchify": "^2.1.1"
   },

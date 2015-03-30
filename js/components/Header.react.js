@@ -14,7 +14,6 @@ var Header = React.createClass({
         <input
           type="text"
           name="goal__input"
-          onBlur={this._save}
           onChange={this._onChange}
           value={this.state.value}
           autoFocus={true}
