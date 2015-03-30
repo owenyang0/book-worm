@@ -22,15 +22,19 @@ function getResidualDays () {
   return getDaysDiff() - moment().dayOfYear();
 }
 
-function getFirstMoment() {
+function getRequiredVelocity(residualCount) {
+  return (residualCount / getResidualDays).toFixed(2);
+}
+
+function getFirstMoment () {
   return moment([moment().year()]).format();
 }
 
-function calcVelocity (num) {
+function calcVelocity(num) {
   return (getDaysDiff() / num).toFixed(2);
 }
 
-function calcCurrentVelocity (finishedNum) {
+function calcCurrentVelocity(finishedNum) {
   return (moment().dayOfYear() / finishedNum).toFixed(2);
 }
 
@@ -57,7 +61,10 @@ var services = {
 
     api.getReadCount('owenyang0', fromDate)
       .then(function(data) {
+        var residualCount = num - data.total;
         WormAction.updateVelocity(calcCurrentVelocity(data.total));
+        WormAction.updateUnfinishedCount(residualCount);
+        WormAction.updateRequiredVelocity(getRequiredVelocity(residualCount));
       });
   },
   updateVelocity: function (vel) {
@@ -71,6 +78,12 @@ var services = {
   },
   updateResidualDays: function (days) {
     _regionsData[2]['list'][1]['unit'] = days;
+  },
+  updateUnfinishedCount: function (count) {
+    _regionsData[2]['list'][2]['unit'] = count;
+  },
+  updateRequiredVelocity: function (vel) {
+    _regionsData[2]['list'][3]['unit'] = vel;
   }
 };
 

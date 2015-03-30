@@ -9,6 +9,8 @@ var api = {
   getReadCount: function (userName, fromDate) {
     var deferred = Q.defer();
 
+    console.log(fromDate);
+
     var api = 'https://api.douban.com/v2/book/user/'
       + userName
       + '/collections';

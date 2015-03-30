@@ -45,6 +45,16 @@ AppDispatcher.register(function(action) {
 
       WormStore.emitChange();
       break;
+    case WormConstants.UNFINISHED_COUNT_UPDATE:
+      utils.updateUnfinishedCount(num);
+
+      WormStore.emitChange();
+      break;
+    case WormConstants.REQUIRED_VELOCITY_UPDATE:
+      utils.updateRequiredVelocity(num);
+
+      WormStore.emitChange();
+      break;
 
     default:
     // no op
