@@ -12,7 +12,7 @@ var Header = React.createClass({
       <header id="header">
         <label for="goal__input">年度目标</label>
         <input
-          type="text"
+          type="number"
           name="goal__input"
           onChange={this._onChange}
           value={this.state.value}
