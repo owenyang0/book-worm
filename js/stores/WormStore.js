@@ -4,7 +4,7 @@ var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
 var WormConstants = require('../constants/WormConstants');
-var utils = require('./data-utils');
+var utils = require('./data-services');
 
 var CHANGE_EVENT = 'change';
 
@@ -29,7 +29,6 @@ var WormStore = assign({}, EventEmitter.prototype, {
   }
 });
 
-// Register callback to handle all updates
 AppDispatcher.register(function(action) {
   var num = +action.num;
 

@@ -1,12 +1,9 @@
 'use strict';
 
 var moment = require('moment');
-var api = require('./douban-api');
+var api = require('./../libs/douban-api');
 
-var WormStore = require('../stores/WormStore');
 var WormAction = require('../actions/WormActions');
-
-
 var inited = false;
 
 var goal = {
@@ -47,6 +44,10 @@ function getDaysDiff () {
   return next.diff(current, 'days');
 }
 
+function getFirstMoment() {
+  return moment([moment().year()]).format();
+}
+
 function calcVelocity (num) {
   return (getDaysDiff() / num).toFixed(2);
 }
@@ -55,7 +56,7 @@ function calcCurrentVelocity (finishedNum) {
   return (moment().dayOfYear() / finishedNum).toFixed(2);
 }
 
-var utils = {
+var services = {
   init: function (initGoal) {
     initGoal = initGoal || 50;
     this.updateGoal(initGoal);
@@ -68,13 +69,13 @@ var utils = {
     return _regionsData;
   },
   updateGoal: function (num) {
-    var self = this;
-
     _regionsData[0]['list'][0]['unit'] = num;
+    var self = this;
+    var fromDate = getFirstMoment();
 
     self.updateVelocity(calcVelocity(num));
 
-    api.getReadCount('owenyang0')
+    api.getReadCount('owenyang0', fromDate)
       .then(function(data) {
         WormAction.updateVelocity(calcCurrentVelocity(data.total));
       });
@@ -87,4 +88,4 @@ var utils = {
   }
 };
 
-module.exports = utils;
+module.exports = services;

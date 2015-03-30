@@ -6,7 +6,7 @@ var Q = require('q');
 require('superagent-jsonp')(request);
 
 var api = {
-  getReadCount: function (userName) {
+  getReadCount: function (userName, fromDate) {
     var deferred = Q.defer();
 
     var api = 'https://api.douban.com/v2/book/user/'
@@ -16,10 +16,10 @@ var api = {
     request
       .get(api)
       .query({status: 'read'})
-      .query({from: '2015-01-30T13:22:53.108Z'})
-
+      .query({from: fromDate})
       .jsonp()
       .end(function(data){
+        console.log(data);
         deferred.resolve(data);
       });
 
