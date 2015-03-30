@@ -1,7 +1,7 @@
 {
   "name": "book-worm",
   "version": "0.0.1",
-  "description": "book worm can track your ready progress in douban",
+  "description": "book worm can track your read progress in douban",
   "repository": "",
   "main": "js/app.js",
   "dependencies": {
