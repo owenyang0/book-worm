@@ -18,6 +18,10 @@ function getDaysDiff () {
   return next.diff(current, 'days');
 }
 
+function getResidualDays () {
+  return getDaysDiff() - moment().dayOfYear();
+}
+
 function getFirstMoment() {
   return moment([moment().year()]).format();
 }
@@ -48,6 +52,8 @@ var services = {
     var fromDate = getFirstMoment();
 
     self.updateVelocity(calcVelocity(num));
+    self.updatePastDays(moment().dayOfYear());
+    self.updateResidualDays(getResidualDays());
 
     api.getReadCount('owenyang0', fromDate)
       .then(function(data) {
@@ -59,6 +65,12 @@ var services = {
   },
   updateCurrentVelocity: function (vel) {
     _regionsData[1]['list'][1]['unit'] = vel;
+  },
+  updatePastDays: function (days) {
+    _regionsData[2]['list'][0]['unit'] = days;
+  },
+  updateResidualDays: function (days) {
+    _regionsData[2]['list'][1]['unit'] = days;
   }
 };
 

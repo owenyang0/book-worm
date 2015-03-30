@@ -23,6 +23,25 @@ var regionsData = [
       unit: null,
       sufText: '天/本'
     }]
+  }, {
+    title: '要求',
+    list: [{
+      preText: '已过',
+      unit: null,
+      sufText: '天'
+    }, {
+      preText: '剩余',
+      unit: null,
+      sufText: '天'
+    }, {
+      preText: '还有',
+      unit: null,
+      sufText: '本未完成'
+    }, {
+      preText: '需要',
+      unit: null,
+      sufText: '天/本，才能完成年度目标'
+    }]
   }
 
 ];
