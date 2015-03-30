@@ -3,6 +3,9 @@
 var moment = require('moment');
 var api = require('./douban-api');
 
+var WormStore = require('../stores/WormStore');
+var WormAction = require('../actions/WormActions');
+
 
 var inited = false;
 
@@ -10,7 +13,7 @@ var goal = {
   title: '目标',
   list: [{
     preText: '年度目标',
-    unit: 50,
+    unit: null,
     sufText: '本'
   }, {
     preText: '已完成',
@@ -23,12 +26,12 @@ var plan = {
   title: '计划',
   list: [{
     preText: '每',
-    unit: 7,
+    unit: null,
     sufText: '天，就得完成一本'
   }, {
     preText: '当前速度',
-    unit: 5.5,
-    sufText: '本/天'
+    unit: null,
+    sufText: '天/本'
   }]
 };
 
@@ -65,12 +68,16 @@ var utils = {
     return _regionsData;
   },
   updateGoal: function (num) {
+    var self = this;
+
     _regionsData[0]['list'][0]['unit'] = num;
 
-    this.updateVelocity(calcVelocity(num));
-    this.updateCurrentVelocity(calcCurrentVelocity(10));
+    self.updateVelocity(calcVelocity(num));
 
-    api.getReadCount('owenyang0');
+    api.getReadCount('owenyang0')
+      .then(function(data) {
+        WormAction.updateVelocity(calcCurrentVelocity(data.total));
+      });
   },
   updateVelocity: function (vel) {
     _regionsData[1]['list'][0]['unit'] = vel;

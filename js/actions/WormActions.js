@@ -10,8 +10,13 @@ var WormActions = {
       actionType: WormConstants.GOAL_UPDATE,
       num: num
     });
-
-
+  },
+  updateVelocity: function (vel) {
+    console.log('v', vel);
+    AppDispatcher.dispatch({
+      actionType: WormConstants.VELOCITY_UPDATE,
+      num: vel
+    });
   }
 };
 
