@@ -9,15 +9,28 @@ var Header = React.createClass({
 
   render: function() {
     return (
-      <header id="header">
-        <label for="goal__input">年度目标</label>
-        <input
-          type="number"
-          name="goal__input"
-          onChange={this._onChange}
-          value={this.state.value}
-          autoFocus={true}
-          />
+      <header className="header">
+        <h1>豆瓣 • 阅读追踪</h1>
+        <div className="header__input">
+          <label for="header__input--goal">年度目标</label>
+          <input
+            type="number"
+            name="header__input--goal"
+            className="header__input--goal"
+            onChange={this._onChange}
+            value={this.state.value}
+            autoFocus={true}
+            />
+        </div>
+        <div className="header__input">
+          <label for="header__input--username">用户名</label>
+          <input
+            type="text"
+            name="header__input--username"
+            className="header__input--username"
+            onChange={this._onChange}
+            />
+        </div>
       </header>
     );
   },

@@ -32,7 +32,7 @@ var MainSection = React.createClass({
 
   render: function () {
     return (
-      <section id="main">
+      <section className="content">
         <Regions regionsData={this.state.regions}/>
       </section>
     );

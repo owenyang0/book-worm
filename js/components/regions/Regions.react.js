@@ -16,7 +16,7 @@ var Region = React.createClass({
 
     return (
       <section className="region">
-        <h1 className="region__title">{regionData.title}</h1>
+        <h2 className="region__title">{regionData.title}</h2>
         <ul className="region__list">
           {regionList}
         </ul>

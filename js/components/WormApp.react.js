@@ -6,7 +6,7 @@ var TodoApp = React.createClass({
 
   render: function() {
   	return (
-      <div>
+      <div className="container">
         <Header />
         <MainSection />
       </div>
