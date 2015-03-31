@@ -11,8 +11,6 @@ var api = {
   getReadCount: function (userName, fromDate) {
     var deferred = Q.defer();
 
-    console.log('from', fromDate);
-
     if (!userName) {
       deferred.reject('error: username cannot be null');
 

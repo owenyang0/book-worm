@@ -1,5 +1,7 @@
 'use strict';
 
+var moment = require('moment');
+
 var regionsData = [
   {
     title: '目标',
@@ -48,7 +50,16 @@ var regionsData = [
       sufText: '天/本，才能完成年度目标'
     }]
   }
-
 ];
 
-module.exports = regionsData;
+function getFirstMoment () {
+  return moment([moment().year()]).format();
+}
+
+var wormData = {
+  regionsData: regionsData,
+  username: 'owenyang0',
+  fromDate: getFirstMoment()
+};
+
+module.exports = wormData;

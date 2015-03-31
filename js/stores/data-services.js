@@ -4,11 +4,8 @@ var moment = require('moment');
 var api = require('./../libs/douban-api');
 
 var WormAction = require('../actions/WormActions');
-var _regionsData = require('./data.tpl');
-var wormData = {
-  username: 'owenyang0',
-  fromDate: getFirstMoment()
-};
+var wormData = require('./data');
+var _regionsData = wormData.regionsData;
 
 var inited = false;
 
@@ -28,10 +25,6 @@ function getResidualDays () {
 
 function getRequiredVelocity(residualCount) {
   return (getResidualDays() / residualCount).toFixed(2);
-}
-
-function getFirstMoment () {
-  return moment([moment().year()]).format();
 }
 
 function calcVelocity(num) {
