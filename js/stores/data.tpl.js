@@ -26,17 +26,17 @@ var regionsData = [
   }, {
     title: '要求',
     list: [{
-      preText: '已过',
+      preText: '已花费',
       unit: null,
       sufText: '天'
     }, {
-      preText: '剩余',
+      preText: '距离计划结束，只有',
       unit: null,
       sufText: '天'
     }, {
-      preText: '还有',
+      preText: '还剩下',
       unit: null,
-      sufText: '本未完成'
+      sufText: '本，未完成'
     }, {
       preText: '需要',
       unit: null,
