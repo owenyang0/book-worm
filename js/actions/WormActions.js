@@ -8,27 +8,41 @@ var WormActions = {
     console.log('a', num, WormConstants);
     AppDispatcher.dispatch({
       actionType: WormConstants.GOAL_UPDATE,
-      num: num
+      value: num
     });
   },
   updateVelocity: function (vel) {
     console.log('v', vel);
     AppDispatcher.dispatch({
       actionType: WormConstants.VELOCITY_UPDATE,
-      num: vel
+      value: vel
     });
   },
   updateUnfinishedCount: function (num) {
     AppDispatcher.dispatch({
       actionType: WormConstants.UNFINISHED_COUNT_UPDATE,
-      num: num
+      value: num
     });
   },
   updateRequiredVelocity: function (vel) {
     console.log('rv', vel);
     AppDispatcher.dispatch({
       actionType: WormConstants.REQUIRED_VELOCITY_UPDATE,
-      num: vel
+      value: vel
+    });
+  },
+  updateUsername: function (username) {
+    console.log('a: update username', username);
+    AppDispatcher.dispatch({
+      actionType: WormConstants.USERNAME_UPDATE,
+      value: username
+    });
+  },
+  getMeta: function (username) {
+    console.log('a: get meta', username);
+    AppDispatcher.dispatch({
+      actionType: WormConstants.META_GET,
+      value: username
     });
   }
 };

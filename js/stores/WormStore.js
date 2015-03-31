@@ -30,28 +30,40 @@ var WormStore = assign({}, EventEmitter.prototype, {
 });
 
 AppDispatcher.register(function(action) {
-  var num = +action.num;
+  var value = action.value;
 
   switch(action.actionType) {
     case WormConstants.GOAL_UPDATE:
-      if (num > 0 ) {
-        utils.updateGoal(num);
+      if (+value > 0 ) {
+        utils.updateGoal(value);
       }
 
       WormStore.emitChange();
       break;
     case WormConstants.VELOCITY_UPDATE:
-      utils.updateCurrentVelocity(num);
+      utils.updateCurrentVelocity(value);
 
       WormStore.emitChange();
       break;
     case WormConstants.UNFINISHED_COUNT_UPDATE:
-      utils.updateUnfinishedCount(num);
+      utils.updateUnfinishedCount(value);
 
       WormStore.emitChange();
       break;
     case WormConstants.REQUIRED_VELOCITY_UPDATE:
-      utils.updateRequiredVelocity(num);
+      utils.updateRequiredVelocity(value);
+
+      WormStore.emitChange();
+      break;
+
+    case WormConstants.USERNAME_UPDATE:
+      utils.userUsername(value);
+
+      WormStore.emitChange();
+      break;
+
+    case WormConstants.META_GET:
+      utils.getMeta(value);
 
       WormStore.emitChange();
       break;

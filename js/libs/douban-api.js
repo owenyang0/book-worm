@@ -10,7 +10,18 @@ var cachedData = {};
 var api = {
   getReadCount: function (userName, fromDate) {
     var deferred = Q.defer();
-    var data = cachedData[fromDate];
+
+    console.log('from', fromDate);
+
+    if (!userName) {
+      deferred.reject('error: username cannot be null');
+
+      return deferred.promise;
+    }
+
+    var data = cachedData[userName];
+
+    console.log('cached', cachedData);
 
     var api = 'https://api.douban.com/v2/book/user/'
       + userName
@@ -24,7 +35,7 @@ var api = {
           .query({from: fromDate})
           .jsonp()
           .end(function(data){
-            cachedData[fromDate] = data;
+            cachedData[userName] = data;
             deferred.resolve(data);
           });
 

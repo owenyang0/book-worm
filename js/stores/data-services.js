@@ -5,6 +5,10 @@ var api = require('./../libs/douban-api');
 
 var WormAction = require('../actions/WormActions');
 var _regionsData = require('./data.tpl');
+var wormData = {
+  username: 'owenyang0',
+  fromDate: getFirstMoment()
+};
 
 var inited = false;
 
@@ -46,26 +50,33 @@ var services = {
     inited = true;
   },
   all: function () {
-    inited || this.init();
-
     return _regionsData;
+  },
+  getMeta: function (username) {
+    var total = _regionsData[0]['list'][0]['unit'];
+    var fromDate = wormData.fromDate;
+
+    api.getReadCount(username, fromDate)
+      .then(function(data) {
+        var residualCount = total - data.total;
+        WormAction.updateVelocity(calcCurrentVelocity(data.total));
+        WormAction.updateUnfinishedCount(residualCount);
+        WormAction.updateRequiredVelocity(getRequiredVelocity(residualCount));
+      });
   },
   updateGoal: function (num) {
     _regionsData[0]['list'][0]['unit'] = num;
     var self = this;
-    var fromDate = getFirstMoment();
+    var username = wormData.username;
 
     self.updateVelocity(calcVelocity(num));
     self.updatePastDays(moment().dayOfYear());
     self.updateResidualDays(getResidualDays());
 
-    api.getReadCount('owenyang0', fromDate)
-      .then(function(data) {
-        var residualCount = num - data.total;
-        WormAction.updateVelocity(calcCurrentVelocity(data.total));
-        WormAction.updateUnfinishedCount(residualCount);
-        WormAction.updateRequiredVelocity(getRequiredVelocity(residualCount));
-      });
+    self.getMeta(username);
+  },
+  userUsername: function (username) {
+    wormData.username = username;
   },
   updateVelocity: function (vel) {
     _regionsData[1]['list'][0]['unit'] = vel;
