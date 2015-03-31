@@ -1,5 +1,5 @@
 # book-worm
-to track your reading progress in douban
+to track your reading progress in douban, go to [page](http://owenyang0.github.io/book-worm/) to track your own.
 
 ## Get Started
 ```bash
