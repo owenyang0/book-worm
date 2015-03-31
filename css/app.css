@@ -21,7 +21,7 @@ button {
 }
 
 body {
-    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font: 18px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.4em;
     background: #eaeaea url('bg.png');
     color: #4d4d4d;
@@ -540,18 +540,14 @@ hr {
     transition-duration: 500ms;
 }
 
-@media (min-width: 899px) {
-    .learn-bar {
-        width: auto;
-        margin: 0 0 0 300px;
-    }
-
-    .learn-bar > .learn {
-        left: 8px;
-    }
-
-    .learn-bar #todoapp {
-        width: 550px;
-        margin: 130px auto 40px auto;
-    }
+.number {
+    background-color: #ff4333;
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
 }

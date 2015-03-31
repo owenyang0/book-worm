@@ -8,16 +8,15 @@ var Region = React.createClass({
   render: function () {
     var regionData = this.props.regionData;
 
-    var regionList = R.map(function (_) {
-      return <li className="region__list-unit"> {_.preText}
-        <span className="number"> {_.unit} </span>
-          {_.sufText}
+    var regionList = R.mapIndexed(function (_, idx) {
+      return <li key={idx} className="region__list-unit">{_.preText}
+        <span className="number">{_.unit}</span>{_.sufText}
         </li>
     }, regionData.list);
 
     return (
       <section className="region">
-        <h1 className="region__title"> {regionData.title} </h1>
+        <h1 className="region__title">{regionData.title}</h1>
         <ul className="region__list">
           {regionList}
         </ul>
@@ -28,8 +27,8 @@ var Region = React.createClass({
 
 var Regions = React.createClass({
   render: function () {
-    var regions = R.map(function (data) {
-      return <Region regionData={data} />
+    var regions = R.mapIndexed(function (data, idx) {
+      return <Region key={idx} regionData={data} />
     }, this.props.regionsData);
 
     return (
