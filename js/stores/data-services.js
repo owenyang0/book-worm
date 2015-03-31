@@ -23,7 +23,7 @@ function getResidualDays () {
 }
 
 function getRequiredVelocity(residualCount) {
-  return (residualCount / getResidualDays).toFixed(2);
+  return (getResidualDays() / residualCount).toFixed(2);
 }
 
 function getFirstMoment () {
