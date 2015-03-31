@@ -4,22 +4,6 @@ body {
     padding: 0;
 }
 
-button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-    font-size: 100%;
-    cursor: pointer;
-    vertical-align: baseline;
-    font-family: inherit;
-    color: inherit;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-}
-
 body {
     font: 18px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.4em;
@@ -62,6 +46,10 @@ body {
     line-height: 40px;
     font-size: 17px;
     text-align: center;
+}
+
+.number-safe {
+    background-color: #00a3cf;
 }
 
 .header__input {

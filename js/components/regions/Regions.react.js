@@ -9,8 +9,10 @@ var Region = React.createClass({
     var regionData = this.props.regionData;
 
     var regionList = R.mapIndexed(function (_, idx) {
+      var cName = [].concat('number', _.isSafe ? ' number-safe' : '').join('');
+
       return <li key={idx} className="region__list-unit">{_.preText}
-        <span className="number">{_.unit}</span>{_.sufText}
+        <span className={cName}>{_.unit}</span>{_.sufText}
         </li>
     }, regionData.list);
 

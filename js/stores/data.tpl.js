@@ -6,7 +6,8 @@ var regionsData = [
     list: [{
       preText: '年度目标',
       unit: null,
-      sufText: '本'
+      sufText: '本',
+      isSafe: true
     }, {
       preText: '已完成',
       unit: 11,
@@ -17,26 +18,30 @@ var regionsData = [
     list: [{
       preText: '每',
       unit: null,
-      sufText: '天，就得完成一本'
+      sufText: '天，就得完成一本',
+      isSafe: true
     }, {
       preText: '当前速度',
       unit: null,
       sufText: '天/本'
     }]
   }, {
-    title: '要求',
+    title: '统计',
     list: [{
       preText: '已花费',
       unit: null,
-      sufText: '天'
+      sufText: '天',
+      isSafe: true
     }, {
       preText: '距离计划结束，只有',
       unit: null,
-      sufText: '天'
+      sufText: '天',
+      isSafe: true
     }, {
       preText: '还剩下',
       unit: null,
-      sufText: '本，未完成'
+      sufText: '本，未完成',
+      isSafe: true
     }, {
       preText: '需要',
       unit: null,
