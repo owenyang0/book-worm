@@ -19,7 +19,7 @@ var api = {
 
     var data = cachedData[userName];
 
-    console.log('cached', cachedData);
+    console.log('cached douban data', cachedData);
 
     var api = 'https://api.douban.com/v2/book/user/'
       + userName

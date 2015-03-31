@@ -4,7 +4,7 @@ var WormActions = require('../../actions/WormActions');
 var Goal = React.createClass({
   getInitialState: function () {
     return {
-      value: this.props.val || 30
+      value: this.props.val || 50
     };
   },
 

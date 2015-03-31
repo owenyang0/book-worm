@@ -41,6 +41,4 @@ var Regions = React.createClass({
   }
 });
 
-
-
 module.exports = Regions;

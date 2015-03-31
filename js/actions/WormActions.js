@@ -5,14 +5,14 @@ var WormConstants = require('../constants/WormConstants');
 var WormActions = {
 
   updateGoal: function (num) {
-    console.log('a', num, WormConstants);
+    console.log('a: update goal', num);
     AppDispatcher.dispatch({
       actionType: WormConstants.GOAL_UPDATE,
       value: num
     });
   },
   updateVelocity: function (vel) {
-    console.log('v', vel);
+    console.log('a: update velocity', vel);
     AppDispatcher.dispatch({
       actionType: WormConstants.VELOCITY_UPDATE,
       value: vel

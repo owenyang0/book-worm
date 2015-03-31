@@ -10,7 +10,7 @@ var Header = React.createClass({
     return (
       <header className="header">
         <h1>豆瓣 • 阅读追踪</h1>
-        <Goal val={31} />
+        <Goal />
         <UserName onGetMeta={this._onGetMeta}/>
       </header>
     );
