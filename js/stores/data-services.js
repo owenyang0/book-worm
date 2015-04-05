@@ -1,6 +1,7 @@
 'use strict';
 
 var moment = require('moment');
+var R = require('ramda');
 var api = require('./../libs/douban-api');
 
 var WormAction = require('../actions/WormActions');
@@ -46,13 +47,15 @@ var services = {
     return _regionsData;
   },
   getMeta: function (username) {
-    var total = _regionsData[0]['list'][0]['unit'];
+    var targetCount = _regionsData[0]['list'][0]['unit'];
     var fromDate = wormData.fromDate;
 
     api.getReadCount(username, fromDate)
-      .then(function(data) {
-        var residualCount = total - data.total;
-        WormAction.updateVelocity(calcCurrentVelocity(data.total));
+      .then(R.prop('total'))
+      .then(function(total) {
+        var residualCount = targetCount - total;
+
+        WormAction.updateVelocity(calcCurrentVelocity(total));
         WormAction.updateUnfinishedCount(residualCount);
         WormAction.updateRequiredVelocity(getRequiredVelocity(residualCount));
       })
