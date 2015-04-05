@@ -55,6 +55,9 @@ var services = {
         WormAction.updateVelocity(calcCurrentVelocity(data.total));
         WormAction.updateUnfinishedCount(residualCount);
         WormAction.updateRequiredVelocity(getRequiredVelocity(residualCount));
+      })
+      .fail(function(err) {
+        console.log(err);
       });
   },
   updateGoal: function (num) {
