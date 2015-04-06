@@ -48,8 +48,20 @@ body {
     text-align: center;
 }
 
+.number:hover {
+  color: #F65A5B;
+  color: #ea3556;
+  background: rgba(246, 90, 91, 0.3);
+  transition: background 500ms;
+}
+
 .number-safe {
     background-color: #00a3cf;
+}
+
+.number-safe:hover {
+  color: #00a3cf;
+  background: rgba(0, 163, 207, 0.3);
 }
 
 .header__input {
