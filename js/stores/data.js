@@ -12,7 +12,7 @@ var regionsData = [
       isSafe: true
     }, {
       preText: '已完成',
-      unit: 11,
+      unit: null,
       sufText: '本'
     }]
   }, {
