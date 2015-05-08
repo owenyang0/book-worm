@@ -38,6 +38,7 @@ body {
 .number {
     background-color: #ea3556;
     color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     display: inline-block;
     border-radius: 50%;
     margin: 0 5px;
@@ -48,8 +49,20 @@ body {
     text-align: center;
 }
 
+.number:hover {
+  color: #F65A5B;
+  color: #ea3556;
+  background: rgba(246, 90, 91, 0.3);
+  transition: background 500ms;
+}
+
 .number-safe {
     background-color: #00a3cf;
+}
+
+.number-safe:hover {
+  color: #00a3cf;
+  background: rgba(0, 163, 207, 0.3);
 }
 
 .header__input {
@@ -60,6 +73,7 @@ body {
 .header__input--goal {
     width: 50px;
 }
+
 input {
     margin-left: 5px;
     height: 20px;
