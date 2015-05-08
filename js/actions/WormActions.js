@@ -18,6 +18,12 @@ var WormActions = {
       value: vel
     });
   },
+  updateFinishedCount: function (num) {
+    AppDispatcher.dispatch({
+      actionType: WormConstants.FINISHED_COUNT_UPDATE,
+      value: num
+    });
+  },
   updateUnfinishedCount: function (num) {
     AppDispatcher.dispatch({
       actionType: WormConstants.UNFINISHED_COUNT_UPDATE,

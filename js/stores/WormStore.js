@@ -29,6 +29,8 @@ var WormStore = assign({}, EventEmitter.prototype, {
   }
 });
 
+WormStore.a = function() {console.log('a');};
+
 AppDispatcher.register(function(action) {
   var value = action.value;
 
@@ -42,6 +44,11 @@ AppDispatcher.register(function(action) {
       break;
     case WormConstants.VELOCITY_UPDATE:
       utils.updateCurrentVelocity(value);
+
+      WormStore.emitChange();
+      break;
+    case WormConstants.FINISHED_COUNT_UPDATE:
+      utils.updateFinishedCount(value);
 
       WormStore.emitChange();
       break;
@@ -74,3 +81,4 @@ AppDispatcher.register(function(action) {
 });
 
 module.exports = WormStore;
+

@@ -56,6 +56,7 @@ var services = {
         var residualCount = targetCount - total;
 
         WormAction.updateVelocity(calcCurrentVelocity(total));
+        WormAction.updateFinishedCount(total);
         WormAction.updateUnfinishedCount(residualCount);
         WormAction.updateRequiredVelocity(getRequiredVelocity(residualCount));
       })
@@ -88,6 +89,9 @@ var services = {
   },
   updateResidualDays: function (days) {
     _regionsData[2]['list'][1]['unit'] = days;
+  },
+  updateFinishedCount: function (count) {
+    _regionsData[0]['list'][1]['unit'] = count;
   },
   updateUnfinishedCount: function (count) {
     _regionsData[2]['list'][2]['unit'] = count;
